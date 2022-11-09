@@ -1,0 +1,18 @@
+---
+ - hosts: Buntu
+   become: true
+   become_user: root
+   tasks:
+     - name: Install Snap packages
+       snap:
+        name:
+        - bitwarden
+        - spotify
+        - obs-studio
+        - discord
+        - telegram-desktop
+        - code
+        - canonical-livepatch
+        - simplenote
+        - slack
+        - pycharm-community --classic
