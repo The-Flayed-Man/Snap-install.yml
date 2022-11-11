@@ -1,19 +1,20 @@
 ---
  - name: Install snaps to Ubuntu workstation
-   hosts: Buntu
+   hosts: localhost
    become: true
    become_user: root
    tasks:
      - name: Install Snap packages
-       snap:
-        name:
-        - bitwarden
-        - spotify
-        - obs-studio
-        - discord
-        - telegram-desktop
-        - code
-        - canonical-livepatch
-        - simplenote
-        - slack
-        - pycharm-community --classic
+       community.general.snap:
+         state: present
+         name:
+           - bitwarden
+           - spotify
+           - obs-studio
+           - discord
+           - telegram-desktop
+           - code --classic
+           - canonical-livepatch
+           - simplenote
+           - slack
+           - pycharm-community --classic
