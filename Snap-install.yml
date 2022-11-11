@@ -6,6 +6,7 @@
    tasks:
      - name: Install Snap packages
        community.general.snap:
+         classic: yes
          state: present
          name:
            - bitwarden
@@ -13,8 +14,8 @@
            - obs-studio
            - discord
            - telegram-desktop
-           - code --classic
+           - code 
            - canonical-livepatch
            - simplenote
            - slack
-           - pycharm-community --classic
+           - pycharm-community 
