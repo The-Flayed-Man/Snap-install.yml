@@ -1,5 +1,6 @@
 ---
- - hosts: Buntu
+ - name: Install snaps to Ubuntu workstation
+   hosts: Buntu
    become: true
    become_user: root
    tasks:
