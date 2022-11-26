@@ -4,18 +4,35 @@
    become: true
    become_user: root
    tasks:
+     - name: snapd present
+       ansible.builtin.apt:
+        name: snapd
+        state: present
+
+     - name: Check Snapd status
+       shell: systemctl status snapd
+       register: Check_Snapd_status  
+     
+     - name: print Snapd status
+       debug:
+         msg: "{{ Check_Snapd_status.stdout_lines }}" 
+
      - name: Install Snap packages
-       community.general.snap:
-         classic: yes
-         state: present
-         name:
-           - bitwarden
-           - spotify
-           - obs-studio
-           - discord
-           - telegram-desktop
-           - code 
-           - canonical-livepatch
-           - simplenote
-           - slack
-           - pycharm-community 
+       snap:
+        classic: yes
+        channel: edge  
+        state: present 
+        name:
+          - bitwarden
+          - spotify
+          - obs-studio
+          - discord
+          - telegram-desktop
+          - code 
+          - canonical-livepatch
+          - simplenote
+          - slack
+          - pycharm-community
+          - notepad-plus-plus
+     
+        
